@@ -1,0 +1,40 @@
+name: benchmark
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dev_dependencies:
+  ffigen: ^6.0.1
+
+dependencies:
+  ffi: ^2.0.1
+  args: ^2.3.1
+
+ffigen:
+  name: "BenchmarkBindings"
+  description: "Bindings for Benchmark"
+  output: "lib/storage/bindings.dart"
+  headers:
+    entry-points:
+      - "../native/test/benchmark.h"
+  globals:
+    exclude:
+      - "_(.*)"
+  functions:
+    symbol-address:
+      include:
+        - ".*"
+    exclude:
+      - "_(.*)"
+  macros:
+    exclude:
+      - "_(.*)"
+      - "true"
+      - "false"
+  typedefs:
+    exclude:
+      - "_(.*)"
+  structs:
+    exclude:
+      - "_(.*)"
+      - "max_align_t"
