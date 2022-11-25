@@ -10,13 +10,13 @@ int? parseInt(ArgParser parser, ArgResults parsed, String name, {bool optional =
   final string = parsed[name];
   if (string == null) {
     if (optional) return null;
-    print("usage: ${parser.usage}");
+    print("usage:\n${parser.usage}");
     exit(-1);
   }
   final value = int.tryParse(string);
   if (value == null) {
     if (optional) return null;
-    print("usage: ${parser.usage}");
+    print("usage:\n${parser.usage}");
     exit(-1);
   }
   return value;
@@ -30,7 +30,7 @@ Future<void> main(List<String> args) async {
   try {
     parsed = parser.parse(args);
   } catch (exception) {
-    print("usage: ${parser.usage}");
+    print("usage:\n${parser.usage}");
     exit(-1);
   }
 
