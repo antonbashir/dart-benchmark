@@ -24,10 +24,10 @@ jobs:
         run: make
 
       - name: Dependencies
-        run: dart pub get
+        run: cd dart && dart pub get
 
       - name: Compile
-        run: dart compile exe bin/main.dart
+        run: cd dart && dart compile exe bin/main.dart
 
       - name: Run
-        run: bin/main.exe -c 1000000000
+        run: cd dart && bin/main.exe -c 1000000000
