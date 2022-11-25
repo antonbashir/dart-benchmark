@@ -30,4 +30,4 @@ jobs:
         run: cd dart && dart compile exe bin/main.dart
 
       - name: Run
-        run: cd dart && bin/main.exe -c 1000000000
+        run: cd dart && bin/main.exe -c 1000000
