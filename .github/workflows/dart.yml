@@ -13,6 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1.3
+      - uses: jwlawson/actions-setup-cmake@v1.13
+        with:
+          cmake-version: '3.16.x'
+
+      - name: Native configure
+        run: cmake -DCMAKE_BUILD_TYPE=RELEASE --target benchmark .
+
+      - name: Native build
+        run: make
 
       - name: Dependencies
         run: dart pub get
